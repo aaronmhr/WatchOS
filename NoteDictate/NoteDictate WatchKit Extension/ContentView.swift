@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var text = ""
     @State private var notes: [Note] = []
+    @State private var showCredits = false
     
     var body: some View {
         VStack {
@@ -38,6 +39,14 @@ struct ContentView: View {
                 .fixedSize()
                 .buttonStyle(BorderedButtonStyle(tint: .blue))
             }
+
+            Button("Credits") {
+                showCredits.toggle()
+            }
+            .sheet(isPresented: $showCredits, content: {
+                CreditsView(date: Date())
+            })
+
         }
     }
 

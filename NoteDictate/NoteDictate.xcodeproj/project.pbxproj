@@ -17,6 +17,7 @@
 		1879B4AC257D6F38001DA4A7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1879B4AB257D6F38001DA4A7 /* Preview Assets.xcassets */; };
 		1879B4C2257D7175001DA4A7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879B4BE257D7044001DA4A7 /* Note.swift */; };
 		1879B4C9257D780A001DA4A7 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879B4C8257D780A001DA4A7 /* DetailView.swift */; };
+		1879B4CF257D7FC4001DA4A7 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879B4CE257D7FC4001DA4A7 /* CreditsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		1879B4AD257D6F38001DA4A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1879B4BE257D7044001DA4A7 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		1879B4C8257D780A001DA4A7 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		1879B4CE257D7FC4001DA4A7 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				1879B4BE257D7044001DA4A7 /* Note.swift */,
 				1879B4A2257D6F38001DA4A7 /* ContentView.swift */,
 				1879B4C7257D77FB001DA4A7 /* DetailView */,
+				1879B4CD257D7FB5001DA4A7 /* CreditsView */,
 				1879B4A4257D6F38001DA4A7 /* NoteDictateApp.swift */,
 				1879B4A6257D6F38001DA4A7 /* ComplicationController.swift */,
 				1879B4A8257D6F38001DA4A7 /* Assets.xcassets */,
@@ -145,6 +148,14 @@
 				1879B4C8257D780A001DA4A7 /* DetailView.swift */,
 			);
 			path = DetailView;
+			sourceTree = "<group>";
+		};
+		1879B4CD257D7FB5001DA4A7 /* CreditsView */ = {
+			isa = PBXGroup;
+			children = (
+				1879B4CE257D7FC4001DA4A7 /* CreditsView.swift */,
+			);
+			path = CreditsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +287,7 @@
 				1879B4A5257D6F38001DA4A7 /* NoteDictateApp.swift in Sources */,
 				1879B4A3257D6F38001DA4A7 /* ContentView.swift in Sources */,
 				1879B4A7257D6F38001DA4A7 /* ComplicationController.swift in Sources */,
+				1879B4CF257D7FC4001DA4A7 /* CreditsView.swift in Sources */,
 				1879B4C9257D780A001DA4A7 /* DetailView.swift in Sources */,
 				1879B4C2257D7175001DA4A7 /* Note.swift in Sources */,
 			);
