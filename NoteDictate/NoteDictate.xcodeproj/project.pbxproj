@@ -15,6 +15,7 @@
 		1879B4A7257D6F38001DA4A7 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879B4A6257D6F38001DA4A7 /* ComplicationController.swift */; };
 		1879B4A9257D6F38001DA4A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1879B4A8257D6F38001DA4A7 /* Assets.xcassets */; };
 		1879B4AC257D6F38001DA4A7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1879B4AB257D6F38001DA4A7 /* Preview Assets.xcassets */; };
+		1879B4C2257D7175001DA4A7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879B4BE257D7044001DA4A7 /* Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		1879B4A8257D6F38001DA4A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1879B4AB257D6F38001DA4A7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1879B4AD257D6F38001DA4A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1879B4BE257D7044001DA4A7 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		1879B4A1257D6F38001DA4A7 /* NoteDictate WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1879B4BE257D7044001DA4A7 /* Note.swift */,
 				1879B4A2257D6F38001DA4A7 /* ContentView.swift */,
 				1879B4A4257D6F38001DA4A7 /* NoteDictateApp.swift */,
 				1879B4A6257D6F38001DA4A7 /* ComplicationController.swift */,
@@ -262,6 +265,7 @@
 				1879B4A5257D6F38001DA4A7 /* NoteDictateApp.swift in Sources */,
 				1879B4A3257D6F38001DA4A7 /* ContentView.swift in Sources */,
 				1879B4A7257D6F38001DA4A7 /* ComplicationController.swift in Sources */,
+				1879B4C2257D7175001DA4A7 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

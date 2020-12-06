@@ -8,9 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var text = ""
+    @State private var notes: [Note] = []
+    
     var body: some View {
-        Text("Hello, World!")
-            .padding()
+        VStack {
+            List(0..<notes.count, id: \.self) { i in
+                Text(notes[i].text)
+            }
+            HStack {
+                TextField("Add new note", text: $text)
+                Button {
+                    guard !text.isEmpty else { return }
+                    let note = Note(id: UUID(), text: text)
+                    notes.append(note)
+                } label: {
+                    Image(systemName: "plus")
+                        .padding()
+                }
+                .fixedSize()
+                .buttonStyle(BorderedButtonStyle(tint: .blue))
+            }
+        }
     }
 }
 
