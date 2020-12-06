@@ -20,7 +20,7 @@ struct ContentView: View {
                             DetailView(index: i, note: notes[i]),
                         label: {
                             Text(notes[i].text)
-                                .lineLimit(1)
+                                .lineLimit(3)
                         })
                 }
                 .onDelete(perform: delete)
