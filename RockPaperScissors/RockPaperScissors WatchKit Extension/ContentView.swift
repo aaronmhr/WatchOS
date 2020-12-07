@@ -7,37 +7,135 @@
 
 import SwiftUI
 
+enum Move {
+    case rock
+    case paper
+    case scissors
+
+    var win: Move {
+        switch self {
+        case .rock: return .paper
+        case .paper: return .scissors
+        case .scissors: return .rock
+        }
+    }
+
+    var lose: Move {
+        switch self {
+        case .rock: return .scissors
+        case .paper: return .rock
+        case .scissors: return .paper
+        }
+    }
+}
+
+extension Move {
+    var image: String {
+        switch self {
+        case .rock: return "cube"
+        case .paper: return "newspaper"
+        case .scissors: return "scissors"
+        }
+    }
+}
+
 struct ContentView: View {
-    let moves = ["cube", "newspaper", "scissors"]
-    @State private var question = "cube"
-    @State private var title = "Win!"
+    let moves: [Move]  = [.rock, .paper, .scissors]
+    let timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
+    @State private var question = Move.rock
     @State private var shouldWin = true
-    @State private var level = 1
+    @State private var level = 0
+    @State private var currentTime = Date()
+    @State private var startTime = Date()
+    @State private var gameOver = false
 
     var body: some View {
         VStack {
-            Image(systemName: question)
-                .resizable()
-                .frame(width: 30, height: 30)
+            if gameOver {
+                Text("You Win!")
+                    .font(.largeTitle)
+                Text("Your time: \(time) seconds")
 
-            Divider()
-                .padding(.vertical)
-
-            HStack {
-                ForEach(moves, id: \.self) { move in
-                    Button(action: {
-                        select(move: move)
-                    }, label: {
-                        Image(systemName: move)
-                    })
+                Button("Play Again") {
+                    startTime = Date()
+                    gameOver = false
+                    level = 1
+                    newLevel()
                 }
+                .buttonStyle(BorderedButtonStyle(tint: .green))
+            } else {
+                Image(systemName: question.image)
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .padding()
+                    .background(
+                        Rectangle()
+                            .foregroundColor(shouldWin ? .green : .red)
+                            .opacity(0.5)
+                            .blur(radius: /*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
+                            .cornerRadius(10)
+                    )
+
+                Divider()
+                    .padding(.vertical)
+
+                HStack {
+                    ForEach(moves, id: \.self) { move in
+                        Button(action: {
+                            select(move: move)
+                        }, label: {
+                            Image(systemName: move.image)
+                        })
+                    }
+                }
+
+                HStack {
+                    Text("\(level)/20")
+                    Spacer()
+                    Text("Time: \(time)")
+                }
+                .padding([.top, .horizontal])
             }
         }
-        .navigationTitle(title)
+        .onAppear(perform: newLevel)
+        .onReceive(timer, perform: { newTime in
+            guard !gameOver else { return }
+            currentTime = newTime
+        })
+        .navigationTitle(shouldWin ? "Win!" : "Lose!")
     }
 
-    func select(move: String) {
-        question = move
+
+
+    var time: String {
+        let difference = currentTime.timeIntervalSince(startTime)
+        return String(Int(difference))
+    }
+
+    func select(move: Move) {
+        let isCorrect: Bool
+        if shouldWin {
+            isCorrect = move == question.win
+        } else {
+            isCorrect = move == question.lose
+        }
+
+        if isCorrect {
+            level += 1
+        } else {
+            level -= 1
+            if level < 1 { level = 1 }
+        }
+        newLevel()
+    }
+
+    func newLevel() {
+        guard level < 20 else {
+            gameOver = true
+            return
+        }
+        shouldWin = Bool.random()
+        question = moves.randomElement()!
     }
 }
 
