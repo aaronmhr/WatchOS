@@ -40,8 +40,9 @@ extension Move {
 }
 
 struct ContentView: View {
-    let moves: [Move]  = [.rock, .paper, .scissors]
+    let moves: Set<Move>  = [.rock, .paper, .scissors]
     let timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
+    @State private var currentArrangement: [Move] = []
     @State private var question = Move.rock
     @State private var shouldWin = true
     @State private var level = 0
@@ -80,7 +81,7 @@ struct ContentView: View {
                     .padding(.vertical)
 
                 HStack {
-                    ForEach(moves, id: \.self) { move in
+                    ForEach(currentArrangement, id: \.self) { move in
                         Button(action: {
                             select(move: move)
                         }, label: {
@@ -135,7 +136,8 @@ struct ContentView: View {
             return
         }
         shouldWin = Bool.random()
-        question = moves.randomElement()!
+        question = moves.subtracting([question]).randomElement()!
+        currentArrangement = moves.shuffled()
     }
 }
 
